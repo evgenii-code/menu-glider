@@ -1,24 +1,27 @@
-# menu-glider
+# Menu with Glider
 
-## Project setup
-```
-npm install
-```
+Mobile menu with smooth glider
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Stack
 
-### Compiles and minifies for production
-```
-npm run build
-```
+- Vue.js
+- Pug
+- SCSS
+- CSS Variables
+- Responsive Design
+- Flexbox/Grid
+- i18n
 
-### Lints and fixes files
-```
-npm run lint
-```
+## Preview
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+https://evgenii-code.github.io/menu-glider/
+
+## Build Setup
+
+```bash
+# install dependencies
+$ npm install
+
+# serve with hot reload at localhost:3000
+$ npm run serve
+```
