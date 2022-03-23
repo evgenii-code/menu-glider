@@ -26,11 +26,8 @@ git add -A
 git commit -m 'deploy'
 
 # if you are deploying to https://<USERNAME>.github.io
-# git push -f git@github.com:$VUE_APP_USER_NAME/$VUE_APP_USER_NAME.github.io.git main
+# git push -f git@github.com:$VUE_APP_USER_NAME/$VUE_APP_USER_NAME.github.io.git master
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
-git push -f git@github.com:$VUE_APP_USER_NAME/$VUE_APP_REPO_NAME.git main:gh-pages
-
+git push -f https://github.com/$VUE_APP_USER_NAME/$VUE_APP_REPO_NAME.git master:gh-pages
 cd -
-
-$SHELL
