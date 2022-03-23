@@ -1,6 +1,9 @@
+import 'normalize.css';
 import Vue from 'vue';
 import App from './App.vue';
-import router from './router';
+import './plugins/fontAwesome';
+import { router } from './router';
+import './styles/index.scss';
 
 Vue.config.productionTip = false;
 

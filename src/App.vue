@@ -1,32 +1,63 @@
-<template>
-  <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
+<template lang="pug">
+  #app.app
+    the-menu.app__menu(:links="links" :active-link-id="activeLinkId")
+
+    router-view.app__router
   </div>
 </template>
 
+<script>
+import { routes } from './router/index';
+import TheMenu from './components/TheMenu.vue';
+
+export default {
+  components: {
+    TheMenu,
+  },
+
+  computed: {
+    links() {
+      return routes.map((route) => {
+        const link = { ...route, icon: route.meta.icon };
+
+        delete link.component;
+        delete link.meta;
+
+        return link;
+      });
+    },
+
+    activeLinkId() {
+      const { path } = this.$route;
+
+      return this.links.findIndex((link) => link.path === path);
+    },
+  },
+};
+</script>
+
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+.app {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+  position: relative;
+  color: var(--color-text-light);
+  background-color: var(--color-background);
+  display: flex;
+  flex-direction: column;
 
-nav {
-  padding: 30px;
+  &__router {
+    width: 100%;
+    min-height: 100vh;
+  }
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+  &__menu {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
 }
+
 </style>
